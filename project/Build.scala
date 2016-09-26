@@ -21,16 +21,16 @@ import sbtrelease.ReleaseStateTransformations._
 import com.typesafe.sbt.osgi.SbtOsgi._
 
 object Build extends sbt.Build {
-  lazy val scalaVersions = "2.11.7" :: "2.10.6" :: Nil
+  lazy val scalaVersions = "2.11.8" :: "2.10.6" :: Nil
   lazy val akkaVersion = "[2.3.0,2.5.0["
-  lazy val scalaTestVersion = "2.2.5"
+  lazy val scalaTestVersion = "3.+"
 
   def projectSettings(n: String, d: String) = Seq(
     name := n,
     description := d,
     organization := "com.github.mkroli",
     scalaVersion := scalaVersions.head,
-    scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-target:jvm-1.6"),
+    scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-target:jvm-1.8"),
     crossScalaVersions := scalaVersions,
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -52,7 +52,7 @@ object Build extends sbt.Build {
       "com.google.guava" % "guava" % "[15.+,18.+]",
       "com.google.code.findbugs" % "jsr305" % "+" % "provided",
       "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
-      "org.scalacheck" %% "scalacheck" % "1.12.1" % "test"))
+      "org.scalacheck" %% "scalacheck" % "1.13.2" % "test"))
 
   lazy val dns4sAkkaProjectSettings = Seq(
     libraryDependencies ++= Seq(
