@@ -40,7 +40,8 @@ object Build extends sbt.Build {
       <scm>
         <url>git@github.com:mkroli/dns4s.git</url>
         <connection>scm:git:git@github.com:mkroli/dns4s.git</connection>
-      </scm>))
+      </scm>),
+    exportJars := true)
 
   def projectOsgiSettings(bundleName: String, packagesPrefix: String, packages: String*) = osgiSettings ++ Seq(
     OsgiKeys.exportPackage := packages.map(pkg => packagesPrefix :: (if (pkg.isEmpty) Nil else pkg :: "*" :: Nil) mkString "."),
