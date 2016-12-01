@@ -22,7 +22,7 @@ import com.typesafe.sbt.osgi.SbtOsgi._
 
 object Build extends sbt.Build {
   lazy val scalaVersions = "2.11.8" :: "2.10.6" :: Nil
-  lazy val akkaVersion = "[2.3.0,2.5.0["
+  lazy val akkaVersion = "[2.4.0,2.5.0["
   lazy val scalaTestVersion = "3.+"
 
   def projectSettings(n: String, d: String) = Seq(
